@@ -16,7 +16,10 @@ phases:
   post_build:
     commands:
       - echo nothing to do
+      - zip -r dist.zip .
 artifacts:
+  # files:
+  #   - '**/*'
   files:
-    - '**/*'
-  base-directory: dist
+    - dist.zip
+  # base-directory: dist

@@ -4,7 +4,7 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 const routes = [
-  { path: '*', redirect: '/register' },
+  { path: '/', redirect: '/register' },
   {
     path: '/register',
     name: 'Register',

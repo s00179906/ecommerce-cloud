@@ -7,10 +7,10 @@ phases:
       - npm install npm -g && node -v && npm -v
       # - curl -sL https://deb.nodesource.com/setup_12.x | bash -
       # - apt install -y nodejs
-      - npm i -g @vue/cli
+      - npm install -g @vue/cli
   pre_build:
     commands:
-      - npm i
+      - npm install
   build:
     commands:
       - npm run build

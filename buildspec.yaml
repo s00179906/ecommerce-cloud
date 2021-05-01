@@ -1,13 +1,11 @@
 version: 0.2
 
 phases:
-  install:
-    commands:
-      - echo Installing Node 12...
-      - npm install npm -g && node -v && npm -v
-      # - curl -sL https://deb.nodesource.com/setup_12.x | bash -
-      # - apt install -y nodejs
-      - npm install -g @vue/cli
+  # install:
+  #   commands:
+  #     - echo Installing Node 12...
+  #     - npm install npm -g && node -v && npm -v
+  #     - npm install -g @vue/cli
   pre_build:
     commands:
       - npm install

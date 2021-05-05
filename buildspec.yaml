@@ -22,4 +22,5 @@ artifacts:
   #   - '**/*'
   files:
     - dist.zip
+    - appspec.yml
   # base-directory: dist

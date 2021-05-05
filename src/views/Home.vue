@@ -45,6 +45,7 @@
         </v-card>
       </div>
     </div>
+
     <div class="pl-4 pr-4 row">
       <div class="col-md-4 col-sm-4 col-xs-12">
         <v-card outlined>
@@ -107,6 +108,7 @@
         </v-card>
       </div>
     </div>
+
     <v-container>
       <v-row no-gutters>
         <v-col :cols="12">

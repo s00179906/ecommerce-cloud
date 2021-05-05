@@ -47,6 +47,8 @@ export default {
             }
           );
 
+          // send msg to que
+
           if (response.data) {
             this.$router.push('/');
             localStorage.setItem('user', JSON.stringify(response.data));

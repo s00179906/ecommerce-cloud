@@ -56,20 +56,25 @@
               </tbody>
             </template>
           </v-simple-table>
-          <div class="text-center">
-            <v-btn class="primary white--text mt-5" outlined
-              >PROCEED TO PAY</v-btn
-            >
-          </div>
+          <Popup v-if="userData" :userData="userData" />
         </v-col>
       </v-row>
     </v-container>
   </div>
 </template>
 <script>
+// import axios from 'axios';
+import Popup from '@/components/Popup.vue';
+
 export default {
+  components: {
+    Popup,
+  },
+
   data: () => ({
     cart: [],
+    user: '',
+    userData: Object,
   }),
 
   methods: {
@@ -81,8 +86,11 @@ export default {
   },
   created() {
     this.cart = JSON.parse(localStorage.getItem('cart'));
-
-    console.log(this.cart);
+    this.user = JSON.parse(localStorage.getItem('user'));
+    this.userData = {
+      email: this.user.email.S,
+      transactionAmount: this.totalCostOfItems(),
+    };
   },
 };
 </script>

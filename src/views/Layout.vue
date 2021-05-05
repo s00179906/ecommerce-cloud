@@ -6,11 +6,9 @@
       color="primary"
       dark
     >
-      <!--      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />-->
-
       <v-toolbar-title style="width: 350px">
         <a href="/" class="white--text" style="text-decoration: none"
-          ><v-icon>mdi-truck</v-icon>&nbsp;ShipIT</a
+          >Cloudmmerce</a
         >
       </v-toolbar-title>
       <h5 class="text-capitalize">Welcome {{ user.fullName.S }}</h5>
@@ -40,54 +38,12 @@
         </v-badge>
       </v-btn>
     </v-app-bar>
-    <v-content>
-      <v-bottom-navigation :value="activeBtn" color="primary" horizontal>
-        <a href="/" class="v-btn">
-          <span>Home</span>
-        </a>
-        <v-menu open-on-hover offset-y>
-          <template v-slot:activator="{ on }">
-            <v-btn v-on="on">
-              <span>Shop</span>
-            </v-btn>
-          </template>
-          <v-card class="mx-auto" max-width="344" outlined>
-            <v-list-item
-              v-for="(item, index) in items"
-              :key="index"
-              href="/shop"
-            >
-              <v-list-item-title>{{ item.title }}</v-list-item-title>
-            </v-list-item>
-          </v-card>
-        </v-menu>
-        <a href="/product" class="v-btn">
-          <span>Product</span>
-        </a>
-        <v-btn href="/blog">
-          <span>Blog</span>
-        </v-btn>
-      </v-bottom-navigation>
-    </v-content>
+
     <router-view />
+
     <v-footer :padless="true">
       <v-card flat tile width="100%" class="secondary white--text text-center">
-        <v-card-text>
-          <v-btn class="mx-4 white--text" icon>
-            <v-icon size="24px">mdi-home</v-icon>
-          </v-btn>
-          <v-btn class="mx-4 white--text" icon>
-            <v-icon size="24px">mdi-email</v-icon>
-          </v-btn>
-          <v-btn class="mx-4 white--text" icon>
-            <v-icon size="24px">mdi-calendar</v-icon>
-          </v-btn>
-          <v-btn class="mx-4 white--text" icon>
-            <v-icon size="24px">mdi-delete</v-icon>
-          </v-btn>
-        </v-card-text>
-
-        <v-card-text class="white--text pt-0">
+        <v-card-text class="white--text pt-5">
           Phasellus feugiat arcu sapien, et iaculis ipsum elementum sit amet.
           Mauris cursus commodo interdum. Praesent ut risus eget metus luctus
           accumsan id ultrices nunc. Sed at orci sed massa consectetur dignissim
@@ -101,7 +57,7 @@
         <v-divider></v-divider>
 
         <v-card-text class="white--text">
-          {{ new Date().getFullYear() }} — <strong>ShipIT</strong>
+          {{ new Date().getFullYear() }} — <strong>Cloudmmerce</strong>
         </v-card-text>
       </v-card>
     </v-footer>

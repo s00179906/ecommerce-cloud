@@ -4,7 +4,6 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 const routes = [
-  { path: '/', redirect: '/register' },
   {
     path: '/register',
     name: 'Register',
@@ -14,6 +13,33 @@ const routes = [
     path: '/login',
     name: 'Login',
     component: () => import('../views/Login.vue'),
+  },
+  {
+    path: '/',
+    component: () => import('../views/Layout.vue'),
+    children: [
+      {
+        path: '/',
+        component: () => import('../views/Home.vue'),
+        name: 'Home',
+      },
+      {
+        path: '/shop',
+        component: () => import('../views/Shop.vue'),
+        name: 'Shop',
+      },
+      {
+        path: '/product',
+        component: () => import('../views/Product.vue'),
+        name: 'Product',
+        props: true,
+      },
+      {
+        path: '/cart',
+        component: () => import('../views/Cart.vue'),
+        name: 'Cart',
+      },
+    ],
   },
 ];
 

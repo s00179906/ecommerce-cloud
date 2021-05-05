@@ -1,7 +1,7 @@
 <template>
   <v-card>
     <v-footer>
-      <v-btn fill="clear" :to="to">
+      <v-btn text :to="to">
         {{ text }} <strong>{{ action }}</strong>
       </v-btn>
     </v-footer>
@@ -16,10 +16,6 @@ export default {
     text: String,
     action: String,
     to: String,
-  },
-
-  created() {
-    console.log(this.to);
   },
 };
 </script>

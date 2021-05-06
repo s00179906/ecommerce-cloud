@@ -1,11 +1,6 @@
 version: 0.2
 
 phases:
-  # install:
-  #   commands:
-  #     - echo Installing Node 12...
-  #     - npm install npm -g && node -v && npm -v
-  #     - npm install -g @vue/cli
   pre_build:
     commands:
       - npm install
@@ -23,4 +18,3 @@ artifacts:
     - dist.zip
     - appspec.yml
     - scripts/*
-  # base-directory: dist

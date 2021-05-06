@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-main>
-      <Layout />
+      <Layout v-if="currentRoute !== 'Register' && currentRoute !== 'Login'" />
       <router-view />
     </v-main>
   </v-app>
@@ -15,8 +15,15 @@ export default {
   components: {
     Layout,
   },
+
+  watch: {
+    $route(to) {
+      this.currentRoute = to.name;
+    },
+  },
+
   data: () => ({
-    //
+    currentRoute: '',
   }),
 };
 </script>

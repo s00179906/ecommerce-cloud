@@ -32,9 +32,7 @@
                   </v-img>
                   <v-card-text class="text--primary">
                     <div>
-                      <a href="/product" style="text-decoration: none">{{
-                        pro.name
-                      }}</a>
+                      <a style="text-decoration: none">{{ pro.name }}</a>
                     </div>
                     <div>${{ pro.price }}</div>
                   </v-card-text>
@@ -153,6 +151,9 @@ export default {
       if (item) {
         this.$router.push({ path: '/product', query: { item } });
       }
+    },
+    changeRoute(path) {
+      this.$router.push(path);
     },
   },
 };

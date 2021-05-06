@@ -6,9 +6,7 @@
     dark
   >
     <v-toolbar-title style="width: 350px">
-      <a href="/" class="white--text" style="text-decoration: none"
-        >Cloudmmerce</a
-      >
+      <v-btn text @click="changeRoute('/')">Cloudmmerce</v-btn>
     </v-toolbar-title>
     <h5 class="text-capitalize" v-if="user !== null">
       Welcome {{ user.fullName.S }}
@@ -25,15 +23,8 @@
     <v-btn icon @click="logout">
       <v-icon>mdi-logout</v-icon>
     </v-btn>
-    <v-btn icon>
-      <v-icon>mdi-account-circle</v-icon>
-    </v-btn>
-    <v-btn v-on="on" icon>
-      <v-badge content="2" value="2" color="green" overlap>
-        <v-icon>mdi-bell</v-icon>
-      </v-badge>
-    </v-btn>
-    <v-btn v-on="on" href="/cart" icon>
+
+    <v-btn @click="changeRoute('/cart')" icon>
       <v-badge content="2" :value="numberOfItemsInCart" color="green" overlap>
         <v-icon>mdi-cart</v-icon>
       </v-badge>
@@ -61,6 +52,10 @@ export default {
     logout() {
       this.$router.push('/login');
       localStorage.clear();
+    },
+
+    changeRoute(path) {
+      this.$router.push(path);
     },
   },
 

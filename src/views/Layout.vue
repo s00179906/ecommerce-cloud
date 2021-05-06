@@ -11,7 +11,9 @@
           >Cloudmmerce</a
         >
       </v-toolbar-title>
-      <h5 class="text-capitalize">Welcome {{ user.fullName.S }}</h5>
+      <h5 class="text-capitalize" v-if="user !== null">
+        Welcome {{ user.fullName.S }}
+      </h5>
       <v-text-field
         flat
         solo-inverted

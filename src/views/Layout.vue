@@ -1,69 +1,44 @@
 <template>
-  <v-app id="inspire">
-    <v-app-bar
-      :clipped-left="$vuetify.breakpoint.lgAndUp"
-      app
-      color="primary"
-      dark
-    >
-      <v-toolbar-title style="width: 350px">
-        <a href="/" class="white--text" style="text-decoration: none"
-          >Cloudmmerce</a
-        >
-      </v-toolbar-title>
-      <h5 class="text-capitalize" v-if="user !== null">
-        Welcome {{ user.fullName.S }}
-      </h5>
-      <v-text-field
-        flat
-        solo-inverted
-        hide-details
-        prepend-inner-icon="mdi-magnify"
-        label="Search"
-        class="hidden-sm-and-down pl-10 ml-4"
-      />
-      <v-spacer />
-      <v-btn icon @click="logout">
-        <v-icon>mdi-logout</v-icon>
-      </v-btn>
-      <v-btn icon>
-        <v-icon>mdi-account-circle</v-icon>
-      </v-btn>
-      <v-btn v-on="on" icon>
-        <v-badge content="2" value="2" color="green" overlap>
-          <v-icon>mdi-bell</v-icon>
-        </v-badge>
-      </v-btn>
-      <v-btn v-on="on" href="/cart" icon>
-        <v-badge content="2" :value="numberOfItemsInCart" color="green" overlap>
-          <v-icon>mdi-cart</v-icon>
-        </v-badge>
-      </v-btn>
-    </v-app-bar>
-
-    <router-view />
-
-    <v-footer :padless="true">
-      <v-card flat tile width="100%" class="secondary white--text text-center">
-        <v-card-text class="white--text pt-5">
-          Phasellus feugiat arcu sapien, et iaculis ipsum elementum sit amet.
-          Mauris cursus commodo interdum. Praesent ut risus eget metus luctus
-          accumsan id ultrices nunc. Sed at orci sed massa consectetur dignissim
-          a sit amet dui. Duis commodo vitae velit et faucibus. Morbi vehicula
-          lacinia malesuada. Nulla placerat augue vel ipsum ultrices, cursus
-          iaculis dui sollicitudin. Vestibulum eu ipsum vel diam elementum
-          tempor vel ut orci. Orci varius natoque penatibus et magnis dis
-          parturient montes, nascetur ridiculus mus.
-        </v-card-text>
-
-        <v-divider></v-divider>
-
-        <v-card-text class="white--text">
-          {{ new Date().getFullYear() }} — <strong>Cloudmmerce</strong>
-        </v-card-text>
-      </v-card>
-    </v-footer>
-  </v-app>
+  <v-app-bar
+    :clipped-left="$vuetify.breakpoint.lgAndUp"
+    app
+    color="primary"
+    dark
+  >
+    <v-toolbar-title style="width: 350px">
+      <a href="/" class="white--text" style="text-decoration: none"
+        >Cloudmmerce</a
+      >
+    </v-toolbar-title>
+    <h5 class="text-capitalize" v-if="user !== null">
+      Welcome {{ user.fullName.S }}
+    </h5>
+    <v-text-field
+      flat
+      solo-inverted
+      hide-details
+      prepend-inner-icon="mdi-magnify"
+      label="Search"
+      class="hidden-sm-and-down pl-10 ml-4"
+    />
+    <v-spacer />
+    <v-btn icon @click="logout">
+      <v-icon>mdi-logout</v-icon>
+    </v-btn>
+    <v-btn icon>
+      <v-icon>mdi-account-circle</v-icon>
+    </v-btn>
+    <v-btn v-on="on" icon>
+      <v-badge content="2" value="2" color="green" overlap>
+        <v-icon>mdi-bell</v-icon>
+      </v-badge>
+    </v-btn>
+    <v-btn v-on="on" href="/cart" icon>
+      <v-badge content="2" :value="numberOfItemsInCart" color="green" overlap>
+        <v-icon>mdi-cart</v-icon>
+      </v-badge>
+    </v-btn>
+  </v-app-bar>
 </template>
 <script>
 export default {
@@ -91,6 +66,8 @@ export default {
 
   created() {
     this.user = JSON.parse(localStorage.getItem('user'));
+
+    console.log(this.user);
     this.numberOfItemsInCart = localStorage.getItem('numberOfItemsInCart');
   },
 };

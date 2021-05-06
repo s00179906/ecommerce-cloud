@@ -16,35 +16,56 @@ const routes = [
   },
   {
     path: '/',
-    component: () => import('../views/Layout.vue'),
-    children: [
-      {
-        path: '/',
-        component: () => import('../views/Home.vue'),
-        name: 'Home',
-      },
-      {
-        path: '/shop',
-        component: () => import('../views/Shop.vue'),
-        name: 'Shop',
-      },
-      {
-        path: '/product',
-        component: () => import('../views/Product.vue'),
-        name: 'Product',
-        props: true,
-      },
-      {
-        path: '/cart',
-        component: () => import('../views/Cart.vue'),
-        name: 'Cart',
-      },
-    ],
+    component: () => import('../views/Home.vue'),
+    name: 'Home',
   },
+  {
+    path: '/shop',
+    component: () => import('../views/Shop.vue'),
+    name: 'Shop',
+  },
+  {
+    path: '/product',
+    component: () => import('../views/Product.vue'),
+    name: 'Product',
+    props: true,
+  },
+  {
+    path: '/cart',
+    component: () => import('../views/Cart.vue'),
+    name: 'Cart',
+  },
+  // {
+  //   path: '/',
+  //   component: () => import('../views/Layout.vue'),
+  //   children: [
+  //     {
+  //       path: '/',
+  //       component: () => import('../views/Home.vue'),
+  //       name: 'Home',
+  //     },
+  //     {
+  //       path: '/shop',
+  //       component: () => import('../views/Shop.vue'),
+  //       name: 'Shop',
+  //     },
+  //     {
+  //       path: '/product',
+  //       component: () => import('../views/Product.vue'),
+  //       name: 'Product',
+  //       props: true,
+  //     },
+  //     {
+  //       path: '/cart',
+  //       component: () => import('../views/Cart.vue'),
+  //       name: 'Cart',
+  //     },
+  //   ],
+  // },
 ];
 
 const router = new VueRouter({
-  mode: 'hash',
+  mode: 'history',
   base: process.env.BASE_URL,
   routes,
 });

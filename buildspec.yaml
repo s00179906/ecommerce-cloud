@@ -12,12 +12,7 @@ phases:
       - echo nothing to do
       - zip -r dist.zip dist
 artifacts:
-  # files:
-  #   - '**/*'
   files:
     - dist.zip
     - appspec.yml
     - scripts/*
-    #
-    #
-    #####

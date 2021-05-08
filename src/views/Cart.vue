@@ -56,7 +56,11 @@
               </tbody>
             </template>
           </v-simple-table>
-          <Popup v-if="userData" :userData="userData" />
+          <Popup
+            v-if="user"
+            :user="user"
+            :transactionAmount="totalCostOfItems()"
+          />
         </v-col>
       </v-row>
     </v-container>
@@ -79,18 +83,28 @@ export default {
 
   methods: {
     totalCostOfItems() {
-      return this.cart
-        .map((item) => item.price)
-        .reduce((acc, price) => parseInt(price) + acc);
+      if (this.cart.length > 0) {
+        return this.cart
+          .map((item) => item.price)
+          .reduce((acc, price) => parseInt(price) + acc);
+      }
     },
   },
   created() {
     this.cart = JSON.parse(localStorage.getItem('cart'));
+
+    console.log(this.cart);
     this.user = JSON.parse(localStorage.getItem('user'));
-    this.userData = {
-      email: this.user.email.S,
-      transactionAmount: this.totalCostOfItems(),
-    };
+
+    const s = this.totalCostOfItems();
+    console.log(s);
+
+    // if (this.user !== null) {
+    //   this.userData = {
+    //     email: this.user.email.S,
+    //     transactionAmount: this.totalCostOfItems(),
+    //   };
+    // }
   },
 };
 </script>

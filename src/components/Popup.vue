@@ -49,10 +49,11 @@
 import axios from 'axios';
 export default {
   props: {
-    userData: {
+    user: {
       type: Object,
       default: () => ({}),
     },
+    transactionAmount: Number,
   },
 
   data: () => ({
@@ -68,17 +69,24 @@ export default {
         this.cardHolderName !== '' &&
         this.svc !== '' &&
         this.creditCardNumber !== '' &&
-        this.userData.email !== '' &&
-        this.userData.transactionAmount !== ''
+        this.user.email.S !== '' &&
+        this.transactionAmount !== ''
       ) {
+        console.log(
+          this.cardHolderName,
+          this.svc,
+          this.creditCardNumber,
+          this.user.email.S,
+          this.transactionAmount
+        );
         const response = await axios.post(
           'https://ycvkvjp3eb.execute-api.eu-west-1.amazonaws.com/dev/api/sqs/send',
           {
             creditCardNumber: this.creditCardNumber,
             cardHolderName: this.cardHolderName,
             svc: this.svc,
-            email: this.userData.email,
-            transactionAmount: this.userData.transactionAmount,
+            email: this.user.email.S,
+            transactionAmount: this.transactionAmount.toString(),
           }
         );
 
@@ -86,6 +94,7 @@ export default {
 
         if (response.data.messageId !== '') {
           localStorage.removeItem('cart');
+          localStorage.setItem('cart', JSON.stringify([]));
           this.dialog = false;
         }
       }
@@ -93,7 +102,8 @@ export default {
   },
 
   created() {
-    console.log('user  data: ', this.userData);
+    console.log('user : ', this.user);
+    console.log('transaction amount : ', this.transactionAmount);
   },
 };
 </script>

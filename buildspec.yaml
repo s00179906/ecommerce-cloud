@@ -16,3 +16,4 @@ artifacts:
     - dist.zip
     - appspec.yml
     - scripts/*
+# dummy change

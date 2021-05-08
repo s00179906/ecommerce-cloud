@@ -6,7 +6,7 @@
     dark
   >
     <v-toolbar-title style="width: 350px">
-      <v-btn text @click="changeRoute('/')">Cloudmmerce</v-btn>
+      <v-btn text @click="changeRoute('/')">Cloudmmerce Demo</v-btn>
     </v-toolbar-title>
     <h5 class="text-capitalize" v-if="user !== null">
       Welcome {{ user.fullName.S }}
